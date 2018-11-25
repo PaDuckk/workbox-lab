@@ -19,6 +19,8 @@ importScripts('https://storage.googleapis.com/workbox-cdn/releases/3.5.0/workbox
 if (workbox) {
   console.log(`Yay! Workbox is loaded 🎉`);
 
+  workbox.precaching.precacheAndRoute([]);
+  
   workbox.routing.registerRoute(
     /(.*)articles(.*)\.(?:png|gif|jpg)/,
     workbox.strategies.cacheFirst({
@@ -31,7 +33,6 @@ if (workbox) {
       ]
     })
   );
-
 } else {
   console.log(`Boo! Workbox didn't load 😬`);
 }
